@@ -11,7 +11,7 @@ Contains :class:`DictableModel` that can be used as a base class for
 
 from __future__ import absolute_import, division
 
-from zeelalchemy import utils
+from dictalchemy import utils
 
 
 class DictableModel(object):

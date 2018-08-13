@@ -34,7 +34,7 @@ setup(name='dictalchemy',
       description="Contains asdict and fromdict methods for SQL-Alchemy "
       "declarative models",
       long_description=README,
-      url='https://github.com/zeel-dev/zeelalchemy',
+      url='https://github.com/zeel-dev/dictalchemy',
       license='MIT',
       author='Zeel Network, Inc.',
       author_email='hosting@zeel.com',

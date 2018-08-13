@@ -8,9 +8,9 @@ Dictalchemy
 """
 from __future__ import absolute_import, division
 
-from zeelalchemy.classes import DictableModel
-from zeelalchemy.utils import make_class_dictable, asdict
-from zeelalchemy.errors import (DictalchemyError, UnsupportedRelationError,
+from dictalchemy.classes import DictableModel
+from dictalchemy.utils import make_class_dictable, asdict
+from dictalchemy.errors import (DictalchemyError, UnsupportedRelationError,
                                 MissingRelationError)
 
 __all__ = [DictableModel,

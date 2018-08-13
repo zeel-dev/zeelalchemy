@@ -1,6 +1,6 @@
 # vim: set fileencoding=utf-8 :
 from __future__ import absolute_import, division
-from zeelalchemy.tests import (
+from dictalchemy.tests import (
     TestCase,
     Named,
     NamedOtherColumnName,

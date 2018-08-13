@@ -2,8 +2,8 @@
 from __future__ import absolute_import, division
 
 import unittest
-import zeelalchemy.tests as tests
-from zeelalchemy import make_class_dictable
+import dictalchemy.tests as tests
+from dictalchemy import make_class_dictable
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import Column, String, Integer

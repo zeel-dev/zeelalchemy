@@ -13,8 +13,8 @@ from sqlalchemy.ext.associationproxy import _AssociationList
 from sqlalchemy.orm.dynamic import AppenderMixin
 from sqlalchemy.orm.query import Query
 
-from zeelalchemy import constants
-from zeelalchemy import errors
+from dictalchemy import constants
+from dictalchemy import errors
 
 
 def arg_to_dict(arg):

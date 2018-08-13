@@ -1,11 +1,11 @@
 # vim: set fileencoding=utf-8 :
 from __future__ import absolute_import, division
 
-from zeelalchemy import (
+from dictalchemy import (
     DictalchemyError,
 )
 
-from zeelalchemy.tests import (
+from dictalchemy.tests import (
     TestCase,
     Named,
     NamedWithOtherPk,
