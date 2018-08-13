@@ -29,12 +29,12 @@ extra = {}
 if sys.version_info >= (3,):
     extra['use_2to3'] = True
 
-setup(name='dictalchemy',
+setup(name='zeelalchemy',
       version='0.1.2.7',
       description="Contains asdict and fromdict methods for SQL-Alchemy "
       "declarative models",
       long_description=README,
-      url='https://github.com/zeel-dev/dictalchemy',
+      url='https://github.com/zeel-dev/zeelalchemy',
       license='MIT',
       author='Zeel Network, Inc.',
       author_email='hosting@zeel.com',
@@ -53,5 +53,5 @@ setup(name='dictalchemy',
       zip_safe=False,
       install_requires=install_requires,
       tests_require=test_requires,
-      test_suite='dictalchemy',
+      test_suite='zeelalchemy',
       **extra)
