@@ -1,8 +1,8 @@
 # vim: set fileencoding=utf-8 :
 from __future__ import absolute_import, division
 
-from dictalchemy import DictableModel
-from dictalchemy.utils import arg_to_dict
+from zeelalchemy import DictableModel
+from zeelalchemy.utils import arg_to_dict
 import unittest
 
 from sqlalchemy import create_engine
