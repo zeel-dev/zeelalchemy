@@ -134,16 +134,7 @@ def asdict(model, exclude=None, exclude_underscore=None, exclude_pk=None,
         if hasattr(rel, method):
             rel_data = getattr(rel, method)(**args)
             if children is not None:
-                for key in children:
-                    rel_child = getattr(rel, key)
-                    if isinstance(rel_child, list):
-                        rel_child_list = []
-                        for grandchild in rel_child:
-                            rel_child_list.append(
-                                getattr(grandchild, method)(**args))
-                        rel_data[key] = rel_child_list
-                    else:
-                        rel_data[key] = getattr(rel_child, method)(**args)
+                get_children_level(children, rel, rel_data, method, args)
         elif isinstance(rel, (list, _AssociationList)):
             rel_data = []
 
@@ -151,17 +142,8 @@ def asdict(model, exclude=None, exclude_underscore=None, exclude_pk=None,
                 if hasattr(child, method):
                     child_dict = getattr(child, method)(**args)
                     if children is not None:
-                        for key in children:
-                            rel_child = getattr(child, key)
-                            if isinstance(rel_child, list):
-                                rel_child_list = []
-                                for grandchild in rel_child:
-                                    rel_child_list.append(
-                                        getattr(grandchild, method)(**args))
-                                child_dict[key] = rel_child_list
-                            else:
-                                child_dict[key] = getattr(rel_child,
-                                                          method)(**args)
+                        get_children_level(children, child, child_dict, method,
+                                           args)
 
                     rel_data.append(child_dict)
                 else:
@@ -358,3 +340,16 @@ def make_class_dictable(
     setattr(cls, 'dictalchemy_asdict_include', asdict_include)
     setattr(cls, 'dictalchemy_fromdict_include', fromdict_include)
     return cls
+
+def get_children_level(children, rel, rel_data, method, args):
+    """Get the second level of the parent"""
+
+    for key in children:
+        rel_child = getattr(rel, key)
+        if isinstance(rel_child, list):
+            rel_child_list = []
+            for grandchild in rel_child:
+                rel_child_list.append(getattr(grandchild, method)(**args))
+            rel_data[key] = rel_child_list
+        else:
+            rel_data[key] = getattr(rel_child, method)(**args)
