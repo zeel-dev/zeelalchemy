@@ -129,15 +129,27 @@ def asdict(model, exclude=None, exclude_underscore=None, exclude_pk=None,
         args['method'] = method
         args.update(copy.copy(kwargs))
 
+        children = args.pop('children', None)
+
         if hasattr(rel, method):
             rel_data = getattr(rel, method)(**args)
+            if children is not None:
+                for key in children:
+                    rel_child = getattr(rel, key)
+                    if isinstance(rel_child, list):
+                        rel_child_list = []
+                        for grandchild in rel_child:
+                            rel_child_list.append(
+                                getattr(grandchild, method)(**args))
+                        rel_data[key] = rel_child_list
+                    else:
+                        rel_data[key] = getattr(rel_child, method)(**args)
         elif isinstance(rel, (list, _AssociationList)):
             rel_data = []
 
             for child in rel:
                 if hasattr(child, method):
                     child_dict = getattr(child, method)(**args)
-                    children = args.pop('children', None)
                     if children is not None:
                         for key in children:
                             rel_child = getattr(child, key)
