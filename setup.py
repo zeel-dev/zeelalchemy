@@ -30,7 +30,7 @@ if sys.version_info >= (3,):
     extra['use_2to3'] = True
 
 setup(name='zeelalchemy',
-      version='0.1.2.7',
+      version='0.1.2.8',
       description="Contains asdict and fromdict methods for SQL-Alchemy "
       "declarative models",
       long_description=README,
